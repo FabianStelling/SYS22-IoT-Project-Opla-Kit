@@ -1,0 +1,26 @@
+{
+  "name": "ActionTriggerer",
+  "version": "1.0.0",
+  "description": "A library for triggering actions based on sensor readings.",
+  "keywords": ["sensor", "action", "trigger"],
+  "authors": [
+    {
+      "name": "Fabian Stelling",
+      "email": "fabian.stelling@bbz-sh.ch",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "Sensors": "^1.0.0"
+  },
+  "frameworks": "arduino",
+  "platforms": "*",
+  "export": {
+    "include": [
+      "IAction.h",
+      "SerialPrintAction.h",
+      "ActionTriggerer.h"
+    ]
+  }
+}

@@ -4,6 +4,8 @@
 #include "MoistureSensor.h"
 #include "PirSensor.h"
 #include "SimulatedSensor.h"
+#include "ActionTriggerer.h"
+#include "SerialPrintAction.h"
 
 
 const char* ssid = "***";
@@ -25,6 +27,9 @@ PirSensor pirSensor(carrier, A6);
 SimulatedSensor simulatedSensorLowValue(0.1);
 SimulatedSensor simulatedSensorHighValue(0.2);
 
+SerialPrintAction serialAction("Threshold reached!");
+ActionTriggerer moistureAlarm(&moistureSensor, &serialAction, 0.5);
+
 void setup() {
     Serial.begin(9600);
     while (!Serial) {
@@ -43,5 +48,6 @@ void loop() {
     Serial.print("Low Simulated Value: "); Serial.println(simulatedSensorLowValue.readSensorValue());
     Serial.print("High Simulated Value: "); Serial.println(simulatedSensorHighValue.readSensorValue());
 
+    moistureAlarm.check();
     delay(1000); // Wait for a minute before the next ping
 }
