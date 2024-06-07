@@ -6,12 +6,13 @@
 #define ANALOGSENSOR_H
 
 #include <Arduino_MKRIoTCarrier.h>
+#include "ISensor.h"
 
-class AnalogSensor {
+class AnalogSensor : public ISensor {
 public:
     AnalogSensor(MKRIoTCarrier carrier, const int sensorPin);
 
-    float readSensorValue();
+    float readSensorValue() override;
 
 protected:
     virtual float computeCalibratedValue(int measuredValue) = 0;

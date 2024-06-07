@@ -1,7 +1,7 @@
 {
-  "name": "AnalogSensorDrivers",
+  "name": "Sensors",
   "version": "1.0.0",
-  "description": "A library for reading analog sensor values using the MKR IoT Carrier.",
+  "description": "A library for reading sensor values using the MKR IoT Carrier.",
   "keywords": "moisture sensor, MKR IoT Carrier, Arduino",
   "authors": [
     {
@@ -10,17 +10,12 @@
       "maintainer": true
     }
   ],
-  "dependencies": {
-    "Sensors": "^1.0.0"
-  },
   "license": "MIT",
   "frameworks": "arduino",
   "platforms": "*",
   "export": {
     "include": [
-      "MoistureSensor.h",
-      "PirSensor.h",
-      "AnalogSensor.h"
+      "ISensor.h"
     ]
   }
 }
