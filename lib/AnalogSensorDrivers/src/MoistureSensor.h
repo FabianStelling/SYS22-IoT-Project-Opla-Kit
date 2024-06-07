@@ -5,23 +5,18 @@
 #ifndef MOISTURESENSOR_H
 #define MOISTURESENSOR_H
 
-#include <Arduino_MKRIoTCarrier.h>
+#include "AnalogSensor.h"
 
 // Create an instance of the MKR IoT Carrier
 
-class MoistureSensor {
+class MoistureSensor : public AnalogSensor {
 public:
     MoistureSensor(MKRIoTCarrier carrier, const int sensorPin);
-
-    float readSensorValue();
-
+protected:
+    float computeCalibratedValue(int measuredValue) override;
 private:
-    static float computeCalibratedValue(int measuredValue);
-
     constexpr static float MIN_MOISTURE_VALUE = 800.0;
     constexpr static float MAX_MOISTURE_VALUE = 1023.0;
-    MKRIoTCarrier carrier;
-    int sensorPin;
 };
 
 

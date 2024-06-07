@@ -2,6 +2,7 @@
 #include "WiFiConnector.h"
 #include "PingRemote.h"
 #include "MoistureSensor.h"
+#include "PirSensor.h"
 
 
 const char* ssid = "***";
@@ -18,6 +19,8 @@ WiFiSSLClient wifi;  // Use WiFiSSLClient for HTTPS
 PingRemote pingRemote(url, wifi, logToSerial);
 
 MKRIoTCarrier carrier;
+MoistureSensor moistureSensor(carrier, A5);
+PirSensor pirSensor(carrier, A6);
 
 void setup() {
     Serial.begin(9600);
@@ -31,10 +34,9 @@ void setup() {
 }
 
 void loop() {
-    MoistureSensor moistureSensor(carrier, A5);
     //pingRemote.ping();
     Serial.print("Moisture value: "); Serial.println(moistureSensor.readSensorValue());
-
+    Serial.print("PIRSensorValue: "); Serial.println(pirSensor.readSensorValue());
 
     delay(1000); // Wait for a minute before the next ping
 }
