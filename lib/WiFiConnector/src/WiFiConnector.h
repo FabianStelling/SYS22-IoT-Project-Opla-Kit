@@ -5,7 +5,7 @@
 #ifndef WIFICONNECTOR_H
 #define WIFICONNECTOR_H
 
-#include "WiFi.h"
+#include "WiFiNINA.h"
 
 class WiFiConnector {
 public:

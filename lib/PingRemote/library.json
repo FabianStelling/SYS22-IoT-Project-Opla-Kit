@@ -1,0 +1,20 @@
+{
+  "name": "PingRemote",
+  "version": "1.0.0",
+  "description": "A library for pinging a configurable Remote using MKR WiFi 1010.",
+  "keywords": ["ping", "WiFi", "ArduinoHttpClient", "WiFiNINA"],
+  "authors": [
+    {
+      "name": "Fabian Stelling",
+      "email": "fabian.stelling@bbz-sh.ch",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "arduino-libraries/ArduinoHttpClient": "^0.4.0",
+    "arduino-libraries/WiFiNINA": "^1.8.13"
+  },
+  "frameworks": "arduino",
+  "platforms": "*"
+}

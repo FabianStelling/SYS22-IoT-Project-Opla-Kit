@@ -5,6 +5,7 @@
 #include <functional>
 #include <ArduinoHttpClient.h>
 #include <WiFiNINA.h> // Ensure this library is included
+#include <WiFiSSLClient.h>
 
 typedef std::function<void(const char*)> LogFunction;
 

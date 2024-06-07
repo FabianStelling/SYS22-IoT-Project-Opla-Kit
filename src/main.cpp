@@ -34,7 +34,7 @@ void setup() {
 }
 
 void loop() {
-    //pingRemote.ping();
+    pingRemote.ping();
     Serial.print("Moisture value: "); Serial.println(moistureSensor.readSensorValue());
     Serial.print("PIRSensorValue: "); Serial.println(pirSensor.readSensorValue());
 
