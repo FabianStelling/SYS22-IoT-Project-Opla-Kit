@@ -3,6 +3,7 @@
 #include "PingRemote.h"
 #include "MoistureSensor.h"
 #include "PirSensor.h"
+#include "SimulatedSensor.h"
 
 
 const char* ssid = "***";
@@ -21,6 +22,8 @@ PingRemote pingRemote(url, wifi, logToSerial);
 MKRIoTCarrier carrier;
 MoistureSensor moistureSensor(carrier, A5);
 PirSensor pirSensor(carrier, A6);
+SimulatedSensor simulatedSensorLowValue(0.1);
+SimulatedSensor simulatedSensorHighValue(0.2);
 
 void setup() {
     Serial.begin(9600);
@@ -37,6 +40,8 @@ void loop() {
     pingRemote.ping();
     Serial.print("Moisture value: "); Serial.println(moistureSensor.readSensorValue());
     Serial.print("PIRSensorValue: "); Serial.println(pirSensor.readSensorValue());
+    Serial.print("Low Simulated Value: "); Serial.println(simulatedSensorLowValue.readSensorValue());
+    Serial.print("High Simulated Value: "); Serial.println(simulatedSensorHighValue.readSensorValue());
 
     delay(1000); // Wait for a minute before the next ping
 }

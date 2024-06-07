@@ -15,7 +15,8 @@
   "platforms": "*",
   "export": {
     "include": [
-      "ISensor.h"
+      "ISensor.h",
+      "SimulatedSensor.h"
     ]
   }
 }
